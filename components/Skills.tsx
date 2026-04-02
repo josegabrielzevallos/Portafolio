@@ -1,4 +1,10 @@
+'use client'
+
+import { useLanguage } from '@/app/LanguageContext'
+
 export default function Skills() {
+  const { t } = useLanguage()
+
   const skills = {
     'Languages': ['Python', 'C/C++', 'C#', 'SQL', 'HTML', 'CSS', 'JavaScript', 'PHP'],
     'Frameworks': ['Django', 'React', 'Flutter', 'Unity', 'Next.js'],
@@ -10,7 +16,7 @@ export default function Skills() {
   return (
     <section id="skills" className="section">
       <div className="max-w-4xl mx-auto">
-        <h2 className="section-title">Technical Skills</h2>
+        <h2 className="section-title">{t('section.skills')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {Object.entries(skills).map(([category, items]) => (
             <div key={category} className="bg-secondary/50 p-6 rounded-lg border border-accent/20 hover:border-accent/50 transition-colors">

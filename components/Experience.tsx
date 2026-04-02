@@ -1,31 +1,37 @@
+'use client'
+
+import { useLanguage } from '@/app/LanguageContext'
+
 export default function Experience() {
+  const { t } = useLanguage()
+
   const experiences = [
     {
-      title: 'Founder & Developer',
-      company: 'Medical Appointment Startup',
-      period: '11/2025 – Present',
-      description: 'Designed and developed a medical appointment management platform using React, Django, and PostgreSQL. Managed cloud infrastructure on Google Cloud with Docker.',
+      title: t('exp.founder'),
+      company: t('exp.startup'),
+      period: t('exp.period1'),
+      description: t('exp.desc1'),
       highlights: ['React', 'Django', 'PostgreSQL', 'Google Cloud', 'Docker'],
     },
     {
-      title: 'Developer Analyst',
-      company: 'Periferia IT Group (Bancamía)',
-      period: '04/2024 – Present',
-      description: 'Administered GeneXus source control, managed SVT workflows, and coordinated CI/CD readiness with GitLab and Jenkins.',
+      title: t('exp.analyst'),
+      company: t('exp.periferia'),
+      period: t('exp.period2'),
+      description: t('exp.desc2'),
       highlights: ['GeneXus', 'GitLab', 'Jenkins', 'SVT'],
     },
     {
-      title: 'Developer Analyst',
-      company: 'Sonda del Perú',
-      period: '03/2024 – 07/2025',
-      description: 'Developed core investment maintainers using hybrid architecture with stored procedures and GeneXus. Implemented dual-control approval models.',
+      title: t('exp.analyst'),
+      company: t('exp.sonda'),
+      period: t('exp.period3'),
+      description: t('exp.desc3'),
       highlights: ['GeneXus', 'SQL', 'API Design'],
     },
     {
-      title: 'Software Engineer',
-      company: 'Incalpaca TPX',
-      period: '02/2022 – 03/2024',
-      description: 'Engineered enterprise surveillance and access-control systems. Redesigned ERP logistics workflows improving operational efficiency.',
+      title: t('exp.engineer'),
+      company: t('exp.incalpaca'),
+      period: t('exp.period4'),
+      description: t('exp.desc4'),
       highlights: ['ERP', 'Django', 'System Design'],
     },
   ]
@@ -33,7 +39,7 @@ export default function Experience() {
   return (
     <section id="experience" className="section bg-secondary/30">
       <div className="max-w-4xl mx-auto">
-        <h2 className="section-title">Experience</h2>
+        <h2 className="section-title">{t('section.experience')}</h2>
         <div className="space-y-8">
           {experiences.map((exp, index) => (
             <div key={index} className="border-l-4 border-accent pl-6 py-4 hover:border-blue-400 transition-colors">

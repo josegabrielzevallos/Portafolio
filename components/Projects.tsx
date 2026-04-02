@@ -1,39 +1,45 @@
+'use client'
+
+import { useLanguage } from '@/app/LanguageContext'
+
 export default function Projects() {
+  const { t } = useLanguage()
+
   const projects = [
     {
       title: 'Medical Appointment Platform',
       description: 'Full-stack appointment management system enabling efficient scheduling between patients and doctors.',
       tech: ['React', 'Django', 'PostgreSQL', 'Google Cloud', 'Docker'],
       link: 'https://github.com/josegabrielzevallos',
-      status: 'In Development',
+      status: t('proj.inDevelopment'),
     },
     {
       title: 'ERP Logistics System',
       description: 'Enterprise resource planning system for logistics and inventory management with real-time tracking.',
       tech: ['GeneXus', 'SQL', 'API Design'],
       link: '#',
-      status: 'Deployed',
+      status: t('proj.deployed'),
     },
     {
       title: 'Community Management Platform',
       description: 'Internal platform for communication, complaint management, and workflow automation.',
       tech: ['Django', 'React', 'PostgreSQL'],
       link: '#',
-      status: 'Deployed',
+      status: t('proj.deployed'),
     },
     {
       title: 'Production Monitoring System',
       description: 'Real-time monitoring of production efficiency, quality control, and shop-floor operations.',
       tech: ['Django', 'SQL Server'],
       link: '#',
-      status: 'Deployed',
+      status: t('proj.deployed'),
     },
   ]
 
   return (
     <section id="projects" className="section bg-secondary/30">
       <div className="max-w-4xl mx-auto">
-        <h2 className="section-title">Featured Projects</h2>
+        <h2 className="section-title">{t('section.projects')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <div key={index} className="bg-secondary border border-accent/20 rounded-lg p-6 hover:border-accent/50 transition-all hover:shadow-lg hover:shadow-accent/20">
@@ -52,7 +58,7 @@ export default function Projects() {
                 ))}
               </div>
               <a href={project.link} className="text-accent hover:text-blue-400 transition-colors inline-flex items-center">
-                View Project →
+                {t('proj.viewProject')}
               </a>
             </div>
           ))}

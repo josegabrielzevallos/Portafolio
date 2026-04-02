@@ -1,4 +1,9 @@
+'use client'
+
+import { useLanguage } from '@/app/LanguageContext'
+
 export default function Education() {
+  const { t } = useLanguage()
   const education = [
     {
       degree: 'B.Sc. in Computer Science',
@@ -40,10 +45,10 @@ export default function Education() {
   return (
     <section id="education" className="section">
       <div className="max-w-4xl mx-auto">
-        <h2 className="section-title">Education & Certifications</h2>
+        <h2 className="section-title">{t('section.education')}</h2>
 
         <div className="mb-12">
-          <h3 className="text-2xl font-bold text-white mb-6">Education</h3>
+          <h3 className="text-2xl font-bold text-white mb-6">{t('edu.education')}</h3>
           <div className="space-y-4">
             {education.map((edu, index) => (
               <div key={index} className="bg-secondary/50 p-6 rounded-lg border-l-4 border-accent">
@@ -59,7 +64,7 @@ export default function Education() {
         </div>
 
         <div>
-          <h3 className="text-2xl font-bold text-white mb-6">Certifications</h3>
+          <h3 className="text-2xl font-bold text-white mb-6">{t('edu.certifications')}</h3>
           <div className="space-y-4">
             {certifications.map((cert, index) => (
               <div key={index} className="bg-secondary/50 p-6 rounded-lg border-l-4 border-blue-500">

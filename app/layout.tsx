@@ -1,6 +1,7 @@
 // @ts-nocheck
 import './globals.css'
 import type { Metadata } from 'next'
+import { LanguageProvider } from './LanguageContext'
 
 export const metadata: Metadata = {
   title: 'Jose Gabriel Zevallos - Software Engineer',
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="bg-primary text-gray-100">
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   )

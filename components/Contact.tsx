@@ -1,8 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+import { useLanguage } from '@/app/LanguageContext'
 
 export default function Contact() {
+  const { t } = useLanguage()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,7 +29,7 @@ export default function Contact() {
   return (
     <section id="contact" className="section bg-secondary/30">
       <div className="max-w-2xl mx-auto">
-        <h2 className="section-title">Get In Touch</h2>
+        <h2 className="section-title">{t('section.contact')}</h2>
 
         <div className="mb-12 flex flex-wrap gap-8 justify-center">
           <a href="email:jose.zevallos.delgadolaflor@gmail.com" className="flex items-center gap-3 text-gray-300 hover:text-accent transition-colors">
@@ -64,7 +66,7 @@ export default function Contact() {
         <form onSubmit={handleSubmit} className="bg-secondary p-8 rounded-lg border border-accent/20">
           <div className="mb-6">
             <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-              Name
+              {t('form.name')}
             </label>
             <input
               type="text"
@@ -74,13 +76,13 @@ export default function Contact() {
               onChange={handleChange}
               required
               className="w-full bg-primary border border-accent/30 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors"
-              placeholder="Your name"
+              placeholder={t('form.name')}
             />
           </div>
 
           <div className="mb-6">
             <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-              Email
+              {t('form.email')}
             </label>
             <input
               type="email"
@@ -90,13 +92,13 @@ export default function Contact() {
               onChange={handleChange}
               required
               className="w-full bg-primary border border-accent/30 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors"
-              placeholder="your@email.com"
+              placeholder={t('form.email')}
             />
           </div>
 
           <div className="mb-6">
             <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-              Message
+              {t('form.message')}
             </label>
             <textarea
               id="message"
@@ -106,17 +108,17 @@ export default function Contact() {
               required
               rows={5}
               className="w-full bg-primary border border-accent/30 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors resize-none"
-              placeholder="Your message..."
+              placeholder={t('form.message')}
             />
           </div>
 
           <button type="submit" className="btn-primary w-full">
-            Send Message
+            {t('form.send')}
           </button>
 
           {submitted && (
             <div className="mt-4 p-4 bg-green-500/20 border border-green-500 rounded-lg text-green-300">
-              ✓ Message sent! I'll get back to you soon.
+              {t('form.success')}
             </div>
           )}
         </form>
