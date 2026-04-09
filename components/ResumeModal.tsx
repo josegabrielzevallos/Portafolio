@@ -22,10 +22,10 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
       
       {/* Modal */}
       <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-secondary border border-accent/30 rounded-lg p-8 z-50 max-w-md w-full mx-4 shadow-2xl">
-        <h2 className="text-2xl font-bold text-white mb-2">
+        <h2 className="text-2xl font-bold text-heading mb-2">
           {t('hero.downloadResume')}
         </h2>
-        <p className="text-gray-400 mb-6">
+        <p className="text-muted mb-6">
           {t('resume.selectLanguage')}
         </p>
 
@@ -39,8 +39,8 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           >
             <div className="text-2xl">🇺🇸</div>
             <div className="flex-1">
-              <p className="font-semibold text-white group-hover:text-white">English Resume</p>
-              <p className="text-sm text-gray-400 group-hover:text-gray-200">Download English CV</p>
+              <p className="font-semibold text-heading group-hover:text-white">English Resume</p>
+              <p className="text-sm text-muted group-hover:text-gray-200">Download English CV</p>
             </div>
             <div className="text-xl">↓</div>
           </a>
@@ -54,8 +54,8 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           >
             <div className="text-2xl">🇪🇸</div>
             <div className="flex-1">
-              <p className="font-semibold text-white group-hover:text-white">CV en Español</p>
-              <p className="text-sm text-gray-400 group-hover:text-gray-200">Descargar CV en Español</p>
+              <p className="font-semibold text-heading group-hover:text-white">CV en Español</p>
+              <p className="text-sm text-muted group-hover:text-gray-200">Descargar CV en Español</p>
             </div>
             <div className="text-xl">↓</div>
           </a>
@@ -64,7 +64,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="w-full mt-6 px-4 py-2 border border-gray-500 text-gray-300 rounded-lg hover:bg-gray-900 hover:text-white transition-colors"
+          className="w-full mt-6 px-4 py-2 border border-subtle text-body rounded-lg hover:bg-secondary hover:text-heading transition-colors"
         >
           {t('resume.close')}
         </button>

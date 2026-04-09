@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from 'react'
 import { useLanguage } from '@/app/LanguageContext'
+import { useTheme } from '@/app/ThemeContext'
 import ResumeModal from '@/components/ResumeModal'
 
 export default function Navbar() {
   const [isScrolling, setIsScrolling] = useState(false)
   const [isResumeModalOpen, setIsResumeModalOpen] = useState(false)
   const { language, setLanguage, t } = useLanguage()
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +41,7 @@ export default function Navbar() {
             <a 
               key={link.href} 
               href={link.href} 
-              className="text-gray-300 hover:text-accent transition-colors"
+              className="text-muted hover:text-accent transition-colors"
             >
               {link.label}
             </a>
@@ -52,23 +54,35 @@ export default function Navbar() {
           </button>
         </div>
         <div className="flex gap-4 items-center">
+          {/* Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            className="relative w-14 h-7 bg-secondary rounded-full p-1 transition-colors border border-accent/20 hover:border-accent/50"
+            aria-label="Toggle theme"
+          >
+            <div className={`absolute top-0.5 w-6 h-6 rounded-full transition-all duration-300 flex items-center justify-center text-sm ${
+              theme === 'dark' 
+                ? 'translate-x-7 bg-indigo-900 shadow-lg shadow-indigo-500/30' 
+                : 'translate-x-0 bg-amber-400 shadow-lg shadow-amber-400/30'
+            }`}>
+              {theme === 'dark' ? '🌙' : '☀️'}
+            </div>
+          </button>
+
           <div className="flex gap-2 bg-secondary/50 rounded-lg p-1">
             <button
               onClick={() => setLanguage('en')}
-              className={`px-3 py-1 rounded transition-colors ${language === 'en' ? 'bg-accent text-white' : 'text-gray-400 hover:text-accent'}`}
+              className={`px-3 py-1 rounded transition-colors ${language === 'en' ? 'bg-accent text-white' : 'text-muted hover:text-accent'}`}
             >
               EN
             </button>
             <button
               onClick={() => setLanguage('es')}
-              className={`px-3 py-1 rounded transition-colors ${language === 'es' ? 'bg-accent text-white' : 'text-gray-400 hover:text-accent'}`}
+              className={`px-3 py-1 rounded transition-colors ${language === 'es' ? 'bg-accent text-white' : 'text-muted hover:text-accent'}`}
             >
               ES
             </button>
           </div>
-          <a href="#contact" className="btn-primary hidden md:block">
-            {t('nav.contact')}
-          </a>
         </div>
       </div>
     </nav>

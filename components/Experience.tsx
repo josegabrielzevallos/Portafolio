@@ -43,10 +43,10 @@ export default function Experience() {
         <div className="space-y-8">
           {experiences.map((exp, index) => (
             <div key={index} className="border-l-4 border-accent pl-6 py-4 hover:border-blue-400 transition-colors">
-              <h3 className="text-xl font-bold text-white">{exp.title}</h3>
+              <h3 className="text-xl font-bold text-heading">{exp.title}</h3>
               <p className="text-accent font-semibold">{exp.company}</p>
-              <p className="text-gray-400 text-sm mb-3">{exp.period}</p>
-              <p className="text-gray-300 mb-4">{exp.description}</p>
+              <p className="text-muted text-sm mb-3">{exp.period}</p>
+              <p className="text-body mb-4">{exp.description}</p>
               <div className="flex flex-wrap gap-2">
                 {exp.highlights.map((tech, i) => (
                   <span key={i} className="px-3 py-1 bg-accent/20 text-accent text-sm rounded-full">

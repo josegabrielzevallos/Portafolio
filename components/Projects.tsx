@@ -1,19 +1,25 @@
 'use client'
 
+import { useState } from 'react'
 import { useLanguage } from '@/app/LanguageContext'
+import ProjectGallery from '@/components/ProjectGallery'
 
 export default function Projects() {
   const { t } = useLanguage()
+  const [galleryOpen, setGalleryOpen] = useState(false)
+
+  const medicFamilyImages = Array.from({ length: 9 }, (_, i) => `/media/${i + 1}m.png`)
 
   const projects = [
     {
       title: 'Medical Appointment Platform',
       description: 'Full-stack appointment management system enabling efficient scheduling between patients and doctors. Real-time notifications and integrated calendar system.',
       tech: ['React', 'Django', 'PostgreSQL', 'Google Cloud', 'Docker'],
-      link: 'https://github.com/josegabrielzevallos',
+      link: 'https://github.com/josegabrielzevallos/medicfamily',
       status: t('proj.inDevelopment'),
       gradient: 'from-blue-600 to-cyan-500',
       icon: '🏥',
+      images: medicFamilyImages,
     },
     {
       title: 'ERP Logistics System',
@@ -50,22 +56,37 @@ export default function Projects() {
         <h2 className="section-title">{t('section.projects')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <div key={index} className="group bg-secondary border border-accent/20 rounded-lg overflow-hidden hover:border-accent/50 transition-all hover:shadow-2xl hover:shadow-accent/20 h-full flex flex-col">
+            <div
+              key={index}
+              className={`group bg-secondary border border-accent/20 rounded-lg overflow-hidden hover:border-accent/50 transition-all hover:shadow-2xl hover:shadow-accent/20 h-full flex flex-col ${project.images ? 'cursor-pointer' : ''}`}
+              onClick={() => project.images && setGalleryOpen(true)}
+            >
               {/* Image Preview */}
-              <div className={`h-40 bg-gradient-to-br ${project.gradient} flex items-center justify-center text-6xl relative overflow-hidden`}>
-                <div className="absolute inset-0 opacity-20 bg-pattern"></div>
-                <span className="text-white drop-shadow-lg group-hover:scale-110 transition-transform">{project.icon}</span>
+              <div className={`h-40 ${project.images ? '' : `bg-gradient-to-br ${project.gradient}`} flex items-center justify-center text-6xl relative overflow-hidden`}>
+                {project.images ? (
+                  <img src={project.images[0]} alt={project.title} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
+                ) : (
+                  <>
+                    <div className="absolute inset-0 opacity-20 bg-pattern"></div>
+                    <span className="text-white drop-shadow-lg group-hover:scale-110 transition-transform">{project.icon}</span>
+                  </>
+                )}
+                {project.images && (
+                  <div className="absolute bottom-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1">
+                    📷 {project.images.length} fotos
+                  </div>
+                )}
               </div>
 
               {/* Content */}
               <div className="p-6 flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-3">
-                  <h3 className="text-lg font-bold text-white flex-1 group-hover:text-accent transition-colors">{project.title}</h3>
+                  <h3 className="text-lg font-bold text-heading flex-1 group-hover:text-accent transition-colors">{project.title}</h3>
                   <span className="text-xs px-2 py-1 bg-accent/20 text-accent rounded-full whitespace-nowrap ml-2">
                     {project.status}
                   </span>
                 </div>
-                <p className="text-gray-400 mb-4 flex-grow text-sm leading-relaxed">{project.description}</p>
+                <p className="text-muted mb-4 flex-grow text-sm leading-relaxed">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech, i) => (
                     <span key={i} className="text-xs px-2 py-1 bg-accent/10 text-accent rounded hover:bg-accent hover:text-white transition-colors">
@@ -77,6 +98,7 @@ export default function Projects() {
                   href={project.link} 
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={e => e.stopPropagation()}
                   className="inline-flex items-center gap-2 text-accent hover:text-blue-300 transition-colors font-semibold group/link"
                 >
                   {t('proj.viewProject')}
@@ -86,6 +108,13 @@ export default function Projects() {
             </div>
           ))}
         </div>
+
+        <ProjectGallery
+          images={medicFamilyImages}
+          isOpen={galleryOpen}
+          onClose={() => setGalleryOpen(false)}
+          title="MedicFamily - Medical Appointment Platform"
+        />
       </div>
     </section>
   )

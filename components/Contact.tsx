@@ -32,32 +32,32 @@ export default function Contact() {
         <h2 className="section-title">{t('section.contact')}</h2>
 
         <div className="mb-12 flex flex-wrap gap-8 justify-center">
-          <a href="email:jose.zevallos.delgadolaflor@gmail.com" className="flex items-center gap-3 text-gray-300 hover:text-accent transition-colors">
+          <a href="email:jose.zevallos.delgadolaflor@gmail.com" className="flex items-center gap-3 text-body hover:text-accent transition-colors">
             <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center">
               ✉️
             </div>
             <div>
-              <p className="text-sm text-gray-400">Email</p>
+              <p className="text-sm text-muted">Email</p>
               <p className="font-semibold">jose.zevallos.delgadolaflor@gmail.com</p>
             </div>
           </a>
 
-          <a href="tel:+12368869432" className="flex items-center gap-3 text-gray-300 hover:text-accent transition-colors">
+          <a href="tel:+12368869432" className="flex items-center gap-3 text-body hover:text-accent transition-colors">
             <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center">
               📱
             </div>
             <div>
-              <p className="text-sm text-gray-400">Phone</p>
+              <p className="text-sm text-muted">Phone</p>
               <p className="font-semibold">+1 (236) 886-9432</p>
             </div>
           </a>
 
-          <a href="https://www.linkedin.com/in/jose-gabriel-zevallos-delgado-de-la-flor-a82307250" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-300 hover:text-accent transition-colors">
+          <a href="https://www.linkedin.com/in/jose-gabriel-zevallos-delgado-de-la-flor-a82307250" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-body hover:text-accent transition-colors">
             <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center">
               💼
             </div>
             <div>
-              <p className="text-sm text-gray-400">LinkedIn</p>
+              <p className="text-sm text-muted">LinkedIn</p>
               <p className="font-semibold">Connect with me</p>
             </div>
           </a>
@@ -65,7 +65,7 @@ export default function Contact() {
 
         <form onSubmit={handleSubmit} className="bg-secondary p-8 rounded-lg border border-accent/20">
           <div className="mb-6">
-            <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+            <label htmlFor="name" className="block text-sm font-medium text-body mb-2">
               {t('form.name')}
             </label>
             <input
@@ -75,13 +75,13 @@ export default function Contact() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full bg-primary border border-accent/30 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors"
+              className="w-full bg-primary border border-accent/30 rounded-lg px-4 py-2 text-heading placeholder-subtle focus:outline-none focus:border-accent transition-colors"
               placeholder={t('form.name')}
             />
           </div>
 
           <div className="mb-6">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+            <label htmlFor="email" className="block text-sm font-medium text-body mb-2">
               {t('form.email')}
             </label>
             <input
@@ -91,13 +91,13 @@ export default function Contact() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full bg-primary border border-accent/30 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors"
+              className="w-full bg-primary border border-accent/30 rounded-lg px-4 py-2 text-heading placeholder-subtle focus:outline-none focus:border-accent transition-colors"
               placeholder={t('form.email')}
             />
           </div>
 
           <div className="mb-6">
-            <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+            <label htmlFor="message" className="block text-sm font-medium text-body mb-2">
               {t('form.message')}
             </label>
             <textarea
@@ -107,7 +107,7 @@ export default function Contact() {
               onChange={handleChange}
               required
               rows={5}
-              className="w-full bg-primary border border-accent/30 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors resize-none"
+              className="w-full bg-primary border border-accent/30 rounded-lg px-4 py-2 text-heading placeholder-subtle focus:outline-none focus:border-accent transition-colors resize-none"
               placeholder={t('form.message')}
             />
           </div>
