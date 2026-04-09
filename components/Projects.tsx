@@ -8,7 +8,7 @@ export default function Projects() {
   const { t } = useLanguage()
   const [galleryOpen, setGalleryOpen] = useState(false)
 
-  const medicFamilyImages = Array.from({ length: 9 }, (_, i) => `/media/${i + 1}m.png`)
+  const medicFamilyImages = Array.from({ length: 9 }, (_, i) => `/media/Medic/${i + 1}m.png`)
 
   const projects = [
     {
