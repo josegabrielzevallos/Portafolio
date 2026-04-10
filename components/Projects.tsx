@@ -16,6 +16,7 @@ export default function Projects() {
       description: 'Full-stack platform that solves the inefficiency of traditional medical scheduling by enabling patients to search for specialists, book appointments, and manage their healthcare needs online. Features include real-time availability, Google Maps integration, role-based dashboards for doctors and patients, and secure authentication.',
       tech: ['React', 'Django', 'PostgreSQL', 'Google Cloud', 'Docker'],
       link: 'https://github.com/josegabrielzevallos/medicfamily',
+      demo: 'https://medicfamily-frontend-42291566189.europe-west1.run.app/',
       status: t('proj.inDevelopment'),
       gradient: 'from-blue-600 to-cyan-500',
       icon: '🏥',
@@ -94,16 +95,30 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                <a 
-                  href={project.link} 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={e => e.stopPropagation()}
-                  className="inline-flex items-center gap-2 text-accent hover:text-blue-300 transition-colors font-semibold group/link"
-                >
-                  {t('proj.viewProject')}
-                  <span className="group-hover/link:translate-x-1 transition-transform">→</span>
-                </a>
+                <div className="flex flex-wrap gap-4">
+                  <a 
+                    href={project.link} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={e => e.stopPropagation()}
+                    className="inline-flex items-center gap-2 text-accent hover:text-blue-300 transition-colors font-semibold group/link"
+                  >
+                    {t('proj.viewProject')}
+                    <span className="group-hover/link:translate-x-1 transition-transform">→</span>
+                  </a>
+                  {project.demo && (
+                    <a 
+                      href={project.demo} 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={e => e.stopPropagation()}
+                      className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors font-semibold group/demo"
+                    >
+                      {t('proj.viewDemo')}
+                      <span className="group-hover/demo:translate-x-1 transition-transform">→</span>
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}
